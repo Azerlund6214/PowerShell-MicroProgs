@@ -1,18 +1,18 @@
 # 291221
 
-Write-Host "Для начала нажмите любую клавишу"
+Write-Host "Р”Р»СЏ РЅР°С‡Р°Р»Р° РЅР°Р¶РјРёС‚Рµ Р»СЋР±СѓСЋ РєР»Р°РІРёС€Сѓ"
 $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") | out-null
-# Либо
+# Р›РёР±Рѕ
 Pause
-# Либо
+# Р›РёР±Рѕ
 Read-Host -Prompt "Press Enter to exit"
 
-sleep 5  # Хз
-Start-Sleep -Seconds 1 # Робит
+sleep 5  # РҐР·
+Start-Sleep -Seconds 1 # Р РѕР±РёС‚
 
 
-$FilePath = "$pathToDomains $siteFolder$configFileName" # Как в пхп
-$var_1 = 'SSLCAC' + $domain + 'сhain.pem"' # Склейка
+$FilePath = "$pathToDomains $siteFolder$configFileName" # РљР°Рє РІ РїС…Рї
+$var_1 = 'SSLCAC' + $domain + 'СЃhain.pem"' # РЎРєР»РµР№РєР°
 
 $paramsArr = (
 				'manual',
@@ -20,9 +20,9 @@ $paramsArr = (
 				$domain,
 				)
 echo $paramsArr
-echo @$paramsArr # Вроде в 1 строчку
+echo @$paramsArr # Р’СЂРѕРґРµ РІ 1 СЃС‚СЂРѕС‡РєСѓ
 
-# Обратный отсчет
+# РћР±СЂР°С‚РЅС‹Р№ РѕС‚СЃС‡РµС‚
 do
 {
    write-host $timeSec
@@ -48,50 +48,50 @@ do
 until($i -eq $maxIters+1)
 
 
-# !!!! Аналог инклуда. Обязательно точка.
+# !!!! РђРЅР°Р»РѕРі РёРЅРєР»СѓРґР°. РћР±СЏР·Р°С‚РµР»СЊРЅРѕ С‚РѕС‡РєР°.
 # https://stackoverflow.com/questions/27138483/how-can-i-re-use-import-script-code-in-powershell-scripts
 . 'S:/vars.ps1'
 
-if (!(Test-Path $FolderForSslToCreate -PathType Container)) {  # Проверить существование
-    New-Item -ItemType Directory -Force -Path $FolderForSslToCreate  # Создать папку
+if (!(Test-Path $FolderForSslToCreate -PathType Container)) {  # РџСЂРѕРІРµСЂРёС‚СЊ СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ
+    New-Item -ItemType Directory -Force -Path $FolderForSslToCreate  # РЎРѕР·РґР°С‚СЊ РїР°РїРєСѓ
 }
 
-$domainEkran = $domain.Replace("*","_")  # Замена * на _ -> Возможно меняет и основную переменную,через ссылку.
+$domainEkran = $domain.Replace("*","_")  # Р—Р°РјРµРЅР° * РЅР° _ -> Р’РѕР·РјРѕР¶РЅРѕ РјРµРЅСЏРµС‚ Рё РѕСЃРЅРѕРІРЅСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ,С‡РµСЂРµР· СЃСЃС‹Р»РєСѓ.
 
 Get-ChildItem Env:CLIENTNAME
-Get-ChildItem Env: # Вывести все ENV
+Get-ChildItem Env: # Р’С‹РІРµСЃС‚Рё РІСЃРµ ENV
 echo $env:windir
 
-# Пустая строка
+# РџСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°
 echo "`n"
 echo ""
 echo "" ; "" ; ""
 
 
-# Вывод в коноль, разница-хз.
-echo 'Новый домен:'
-Write-Host "Сейчас будет вызов"
+# Р’С‹РІРѕРґ РІ РєРѕРЅРѕР»СЊ, СЂР°Р·РЅРёС†Р°-С…Р·.
+echo 'РќРѕРІС‹Р№ РґРѕРјРµРЅ:'
+Write-Host "РЎРµР№С‡Р°СЃ Р±СѓРґРµС‚ РІС‹Р·РѕРІ"
 
-# Получение ввода из консоли.
+# РџРѕР»СѓС‡РµРЅРёРµ РІРІРѕРґР° РёР· РєРѕРЅСЃРѕР»Рё.
 $domain=read-host
-$domain=read-host 'Блабла'    # Он сам подставит :
+$domain=read-host 'Р‘Р»Р°Р±Р»Р°'    # РћРЅ СЃР°Рј РїРѕРґСЃС‚Р°РІРёС‚ :
 
 
-$domain=read-host 'Блабла' -AsSecureString  # Для паролей и тд, потом надо отдельно преобразовывать в текст
+$domain=read-host 'Р‘Р»Р°Р±Р»Р°' -AsSecureString  # Р”Р»СЏ РїР°СЂРѕР»РµР№ Рё С‚Рґ, РїРѕС‚РѕРј РЅР°РґРѕ РѕС‚РґРµР»СЊРЅРѕ РїСЂРµРѕР±СЂР°Р·РѕРІС‹РІР°С‚СЊ РІ С‚РµРєСЃС‚
 [Runtime.InteropServices.Marshal]::PtrToStringAuto(    [Runtime.InteropServices.Marshal]::SecureStringToBSTR($pass)  )
 
 
 # ##############################################
 
 (Get-Content $FilePath) -replace 'SSLCertificateKeyFile.*'   , $SslString_4 | Out-File $FilePath
-# Как было =(Get-Content $FilePath) -replace 'password=.*','password="YOUR TEXT"' | Out-File $FilePath
+# РљР°Рє Р±С‹Р»Рѕ =(Get-Content $FilePath) -replace 'password=.*','password="YOUR TEXT"' | Out-File $FilePath
 
-# Вызов файла с парам
+# Р’С‹Р·РѕРІ С„Р°Р№Р»Р° СЃ РїР°СЂР°Рј
 & '.../123.exe' @$paramsArr
-# Еще 10+ способов https://social.technet.microsoft.com/wiki/contents/articles/7703.powershell-running-executables.aspx
+# Р•С‰Рµ 10+ СЃРїРѕСЃРѕР±РѕРІ https://social.technet.microsoft.com/wiki/contents/articles/7703.powershell-running-executables.aspx
 
 
-# Решение получения имени пк рдп,  робит = https://docs.microsoft.com/en-us/answers/questions/316984/clientame-environment-variable-from-rdp-missing.html
+# Р РµС€РµРЅРёРµ РїРѕР»СѓС‡РµРЅРёСЏ РёРјРµРЅРё РїРє СЂРґРї,  СЂРѕР±РёС‚ = https://docs.microsoft.com/en-us/answers/questions/316984/clientame-environment-variable-from-rdp-missing.html
 
 # https://windowsnotes.ru/powershell-2/powershell-i-kavychki/
 # https://codernotes.ru/articles/powershell/zapusk-skriptov-powershell.html
