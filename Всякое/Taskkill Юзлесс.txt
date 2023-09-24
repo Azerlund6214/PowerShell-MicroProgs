@@ -1,0 +1,16 @@
+
+$paramsArr = (
+                 '/F', # Принудительно
+                 '/T', # И дочерние
+                 '/IM', $process # По точному имени. Закроет все с таким именем.
+             )
+#echo $paramsArr;
+#echo @$paramsArr;
+ 
+write-host "Убиваю процесс:" $process
+& 'taskkill.exe' $paramsArr
+#& 'taskkill.exe' @('/F','/T', '/IM', '*') # Убить вообще все, не тестил
+# 99% Что будет отказано в доступе.
+
+
+123
