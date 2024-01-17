@@ -20,6 +20,8 @@ set /P host="Enter host name: "
 set webroot=A:\OpenServer\domains\DEV-FOR-MAKE-SSL
 echo %host%
 
+set /a timeSec=timeMin*60
+
 
 start "zogolovokOkna" "%wacspsth%" --source manual --host %host% --validation filesystem --webroot "%webroot%" --store pemfiles --pemfilespath %pemstore%
 
